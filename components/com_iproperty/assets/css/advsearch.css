@@ -1,0 +1,62 @@
+/**
+ * @version 3.3.3 2015-04-30
+ * @package Joomla
+ * @subpackage Intellectual Property
+ * @copyright (C) 2009 - 2015 the Thinkery LLC. All rights reserved.
+ * @license GNU/GPL see LICENSE.php
+ */
+
+#ip-map-canvas{min-height: 500px; height: 500px; width: 100%;}
+#ip-map-canvas img{max-width: none !important;} /* bootstrap gmap bug fix */
+
+.ip-bubble-window{min-width: 400px !important;}
+.ip-adv-subcat{margin-left: 15px;}
+.ip-adv-spacer{height: 10px; clear: both;}
+.ip-adv-select{}
+.ip-adv-input{}
+
+.ip-adv-slidecontainer{clear: both;}
+.ip-adv-slider{clear: both;}
+.ip-adv-slidevalue{margin: 5px;}
+
+.ip-adv-amencontainer{padding: 8px;}
+.ip-adv-catgroupcontainer{padding: 8px;}
+.ip-adv-slidercontainer{padding: 8px;}
+
+/* Advsearch2 styles */
+#ip-mapcontainer{position: relative; overflow: hidden; border: solid 1px #ccc;}
+#ip-mapcontainer form{margin: 0px;}
+
+
+#ip-mapcontainer.full-screen{width: 100%; min-height: inherit !important; height: auto !important; position: absolute; top: 0; bottom: 0;}
+#ip-mapcontainer.full-screen #ip-map-canvas{height: 100%; width: 100%;}
+#ip-mapcontrol-show {
+    position: absolute; 
+    z-index: 100;  
+    top: 50%;
+    left: 0; 
+    border: solid 1px #ccc; 
+    border-left: none;
+    border-radius: 0 10px 10px 0; 
+    padding: 30px 20px; 
+    background: #fff;
+    color: #008CFF;
+    cursor: pointer;
+}
+#ip-mapcontrols { 
+    width: 480px;    
+    vertical-align: center;
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    z-index:99; 
+    background-color:#ffffff; 
+    opacity:0.9;
+    height: 100%;
+    border-right: solid 1px #ccc;
+}
+.ip-mapcontrols-container{height: 100%; padding: 10px;}
+#ip-map-information{position: absolute; bottom: 10px; right: 10px;}
+
+.dropshadow{-webkit-box-shadow: 5px 5px 5px #888; -moz-box-shadow: 5px 5px 5px #888; box-shadow: 5px 5px 5px #888;}
+

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="help" label="COM_USERS_REGISTRATION_DEFAULT_LABEL">
+		<field name="subject" type="text" label="Subject" description="Subject" filter="raw" placeholder="Subject"/>
+		<field name="listing_no" type="sql" label="Listing No." description="Listing No." filter="raw" placeholder="Listing Number" query="SELECT * FROM `#__iproperty` join c4aqr_iproperty_agentmid on #__iproperty.id = #__iproperty_agentmid.prop_id WHERE access=1 and agent_id!='' and agent_id!=0" key_field="mls_id" value_field="mls_id">
+			<option value="">Select Listing No.</option>
+		</field>
+       <field name="question" type="textarea" label="Your Question" description="question" rows="6" cols="30" filter="raw" placeholder="Your Question"/>
+    </fieldset>
+</form>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+<fieldset name="description" addfieldpath="/administrator/components/com_iproperty/models/fields">
+		<field name="id" type="text" default="0" readonly="true" class="readonly" label="JGLOBAL_FIELD_ID_LABEL" 	description ="JGLOBAL_FIELD_ID_DESC" />
+
+        <field name="buyer_id" type="hidden" default="0" readonly="true" class="readonly" label="JGLOBAL_FIELD_BUYER_ID_LABEL"    description ="JGLOBAL_FIELD_BUYER_ID_DESC" />
+
+        <!-- details -->
+        <field name="title" type="text" class="inputbox" size="50" required="true" label="COM_IPROPERTY_TITLE" description="" />
+        <field name="description" type="textarea" cols="10" rows="50" label="COM_IPROPERTY_DESC" description="" />
+        <field name="hometype" default="1" type="stypes" class="inputbox" size="1" label="COM_IPROPERTY_HOME_TYPE" description="" required="true"/>
+        <field name="minprice" type="text" class="inputbox checkint" size="20" label="COM_IPROPERTY_MIN_PRICE_TO_MAX_PRICE" description="COM_IPROPERTY_MIN_PRICE_TO_MAX_PRICE_DESC" required="true" />
+        <field name="maxprice" type="text" class="inputbox checkint" label="" description="" required="true"/>
+        <field name="city" type="city" class="inputbox city" multiple="true" size="50" label="COM_IPROPERTY_CITY" description="" required="true" />
+        <field name="locstate" type="locstate" class="inputbox region" multiple="true" size="10" label="COM_IPROPERTY_STATE" description="" required="true"/>
+        <field name="country" type="country" class="inputbox" multiple="true" size="10" label="COM_IPROPERTY_COUNTRY" description="" required="true"/>
+    </fieldset>
+<fieldset name="details" addfieldpath="/administrator/components/com_iproperty/models/fields">
+        <field name="beds" type="text" label="COM_IPROPERTY_BEDS_DESIRED" description="" class="checkint" />
+        <field name="sleeps" type="number" min="0" max="50" label="COM_IPROPERTY_SLEEPS" description="" />
+        <field name="kitchen" type="text" size="50" label="COM_IPROPERTY_KITCHEN_DESIRED" description="" class="checkint" />
+        <field name="shared_own" type="radio" default="0" label="Shared Own" description="" class="btn-group btn-group-yesno">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="lease_hold" type="radio" default="0" label="Lease Hold" description="" class="btn-group btn-group-yesno">
+          <option value="1">JYES</option>
+          <option value="0">JNO</option>
+        </field>
+        <field name="baths" type="text" label="COM_IPROPERTY_BATHS_DESIRED" description="" class="checkint" />
+        <field name="total_units" type="integer" default="1" label="COM_IPROPERTY_TOTALUNITS" description="COM_IPROPERTY_TOTALUNITS_DESC" first="1" last="10" step="1" />
+        <field name="sqft" type="text" class="inputbox checkint" size="20" label="COM_IPROPERTY_SQFT_DESIRED" description="" />
+        <field name="lotsize" type="text" class="inputbox" size="20" label="COM_IPROPERTY_LOT_SIZE" description="" />
+        <field name="lot_acres" type="text" class="inputbox" size="20" label="COM_IPROPERTY_LOT_ACRES" description="" />
+        <field name="lot_type" type="text" class="inputbox" size="20" label="COM_IPROPERTY_LOT_TYPE" description="" />
+        <field name="heat" type="text" class="inputbox" size="20" label="COM_IPROPERTY_HEAT" description="" />
+        <field name="cool" type="text" class="inputbox" size="20" label="COM_IPROPERTY_COOL" description="" />
+        <field name="fuel" type="text" class="inputbox" size="20" label="COM_IPROPERTY_FUEL" description="" />
+        <field name="garage_type" type="text" class="inputbox" size="20" label="COM_IPROPERTY_GARAGE_TYPE" description="" />
+        <field name="garage_size" type="text" class="inputbox" size="20" label="COM_IPROPERTY_GARAGE_SIZE" description="" />
+        <field name="siding" type="text" class="inputbox" size="20" label="COM_IPROPERTY_SIDING" description="" />
+        <field name="roof" type="text" class="inputbox" size="20" label="COM_IPROPERTY_ROOF_DESIRED" description="" />
+        <field name="reception" type="text" class="inputbox" size="20" label="COM_IPROPERTY_RECEPTION" description="" />
+        <field name="tax" type="text" class="inputbox" size="20" label="COM_IPROPERTY_TAX" description="" />
+        <field name="income" type="text" class="inputbox" size="20" label="COM_IPROPERTY_INCOME" description="" />
+        <!-- column two -->
+        <field name="yearbuilt" type="text" class="inputbox" size="20" label="COM_IPROPERTY_YEAR_BUILT" description="" />
+        <field name="zoning" type="text" class="inputbox" size="20" label="COM_IPROPERTY_ZONING" description="" />
+        <field name="propview" type="text" class="inputbox" size="20" label="COM_IPROPERTY_PROPVIEW" description="" />
+        <field name="school_district" type="text" class="inputbox" size="20" label="COM_IPROPERTY_SCHOOL_DISTRICT" description="" />
+        <field name="style" type="text" class="inputbox" size="20" label="COM_IPROPERTY_STYLE" description="" />
+        <field name="frontage" type="radio" class="inputbox" label="COM_IPROPERTY_FRONTAGE" description="" default="0">
+            <option value="1">JYES</option>
+			<option value="0">JNO</option>
+        </field>
+        <field name="reo" type="radio" class="inputbox" label="COM_IPROPERTY_REO" description="" default="0">
+            <option value="1">JYES</option>
+			<option value="0">JNO</option>
+        </field>
+        <field name="hoa" type="radio" class="inputbox" label="COM_IPROPERTY_HOA" description="" default="0">
+            <option value="1">JYES</option>
+			<option value="0">JNO</option>
+        </field>        
+    </fieldset>
+    <fieldset name="amenities" addfieldpath="/administrator/components/com_iproperty/models/fields">       
+        <field name="general_amen_header" type="header" default="COM_IPROPERTY_GENERAL_AMENITIES" tag="success" />
+        <field name="general_amens" type="amencheckboxes" class="inputbox" label="" description="" category="0" />
+        <field name="interior_amen_header" type="header" default="COM_IPROPERTY_INTERIOR_AMENITIES" tag="info" />
+        <field name="interior_amens" type="amencheckboxes" class="inputbox" label="" description="" category="1" />
+        <field name="exterior_amen_header" type="header" default="COM_IPROPERTY_EXTERIOR_AMENITIES" tag="error" />
+        <field name="exterior_amens" type="amencheckboxes" class="inputbox" label="" description="" category="2" />
+        <field name="accessibility_amen_header" type="header" default="COM_IPROPERTY_ACCESSIBILITY_AMENITIES" tag="success" />
+        <field name="accessibility_amens" type="amencheckboxes" class="inputbox" label="" description="" category="3" />
+        <field name="green_amen_header" type="header" default="COM_IPROPERTY_GREEN_AMENITIES" tag="info" />
+        <field name="green_amens" type="amencheckboxes" class="inputbox" label="" description="" category="4" />
+        <field name="security_amen_header" type="header" default="COM_IPROPERTY_SECURITY_AMENITIES" tag="error" />
+        <field name="security_amens" type="amencheckboxes" class="inputbox" label="" description="" category="5" />
+        <field name="landscape_amen_header" type="header" default="COM_IPROPERTY_LANDSCAPE_AMENITIES" tag="success" />
+        <field name="landscape_amens" type="amencheckboxes" class="inputbox" label="" description="" category="6" />
+        <field name="community_amen_header" type="header" default="COM_IPROPERTY_COMMUNITY_AMENITIES" tag="info" />
+        <field name="community_amens" type="amencheckboxes" class="inputbox" label="" description="" category="7" />
+        <field name="appliance_amen_header" type="header" default="COM_IPROPERTY_APPLIANCE_AMENITIES" tag="error" />
+        <field name="appliance_amens" type="amencheckboxes" class="inputbox" label="" description="" category="8" />
+    </fieldset>
+  <fieldset name="notes" addfieldpath="/administrator/components/com_iproperty/models/fields">
+    <field name="notes" type="textarea" default="" label="Notes" description="" rows="7" cols="40" filter="raw"/>
+  </fieldset>       
+
+</form>

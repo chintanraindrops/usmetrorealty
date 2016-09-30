@@ -1,0 +1,489 @@
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+.clearfix:after {
+  clear: both;
+}
+.hide-text {
+  font-size: 0;
+  line-height: 0;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+.input-block-level {
+  display: block;
+  width: 100%;
+  min-height: 40px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+#Kunena table,
+#Kunena tr,
+#Kunena td,
+#Kunena th,
+#Kunena div,
+#Kunena fieldset,
+#Kunena span,
+#Kunena li,
+#Kunena dt,
+#Kunena legend {
+  border-color: #dddddd !important;
+}
+#Kunena legend {
+  color: inherit;
+}
+#Kunena table {
+  background: transparent;
+}
+#Kunena td {
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
+}
+#Kunena td:nth-child(odd) {
+  background: #f9f9f9;
+}
+#Kunena tr,
+#Kunena td {
+  border-bottom: 1px solid;
+}
+#Kunena dt {
+  font-weight: normal;
+}
+#Kunena select,
+#Kunena button {
+  margin-bottom: 9px;
+}
+#Kunena a.close,
+#Kunena a.open {
+  background-color: #dddddd;
+  opacity: 1;
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s;
+  -moz-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition: background-color 0.5s;
+}
+#Kunena a.close:hover,
+#Kunena a.open:hover {
+  background-color: #c4c4c4;
+}
+#Kunena #ktab li {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  margin-bottom: -1px !important;
+  border: 1px solid;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  background: #f7f7f7;
+}
+#Kunena #ktab li#current,
+#Kunena #ktab li:hover {
+  background: #ffffff;
+  border-bottom-color: #ffffff !important;
+}
+#Kunena #ktab li#current a,
+#Kunena #ktab li:hover a {
+  color: #005580;
+}
+#Kunena #ktopmenu {
+  border-bottom: 1px solid;
+  display: block;
+  margin: 0 0 20px;
+}
+#Kunena .kforum-pathway {
+  margin-top: 0;
+  border-top: 1px solid;
+}
+#Kunena .kforum-pathway .path-element {
+  position: relative;
+}
+#Kunena .kforum-pathway .path-element:before {
+  position: absolute;
+  left: 1px;
+  top: 50%;
+  border-left: 4px solid #aaaaaa;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  content: '';
+  margin-top: -4px;
+}
+#Kunena form {
+  margin: 0px;
+}
+#Kunena form.kuena_form {
+  margin: 8px;
+}
+#Kunena .kicon-button {
+  background: none !important;
+}
+#Kunena .kicon-button span span {
+  color: #fff;
+}
+#Kunena div.kmessage-editmarkup-cover {
+  border: none;
+}
+#Kunena .kwho-admin,
+#Kunena a.kwho-admin {
+  color: #f00 !important;
+}
+#Kunena a.kwho-admin:hover,
+#Kunena a.kwho-globalmoderator:hover,
+#Kunena a.kwho-moderator:hover,
+#Kunena a.kwho-banned:hover,
+#Kunena a.kwho-user:hover,
+#Kunena a.kwho-guest:hover {
+  text-decoration: underline !important;
+}
+#Kunena .kwho-globalmoderator,
+#Kunena a.kwho-globalmoderator {
+  color: #800000 !important;
+}
+#Kunena .kwho-moderator,
+#Kunena a.kwho-moderator {
+  color: #00f !important;
+}
+#Kunena .kwho-banned,
+#Kunena a.kwho-banned {
+  color: #A39D49 !important;
+}
+#Kunena .kwho-user,
+#Kunena a.kwho-user {
+  color: #5388B4 !important;
+}
+#Kunena .kwho-guest,
+#Kunena a.kwho-guest {
+  color: #666 !important;
+}
+#Kunena label {
+  display: inline;
+}
+#Kunena .kblock div.kheader {
+  padding: 10px;
+  background: #0088cc;
+  color: #ffffff;
+}
+#Kunena .kblock div.kheader > span {
+  display: block;
+  font-weight: bold;
+  font-size: 15.6px;
+  line-height: 21.6px;
+}
+#Kunena .kblock div.kheader > span.k-name {
+  display: inline;
+}
+#Kunena .kblock div.kheader > span.kright {
+  float: right;
+}
+#Kunena .kblock div.kheader > span a {
+  color: inherit;
+}
+#Kunena .kblock div.kheader div.ktitle-desc {
+  margin-top: 10px;
+  padding-bottom: 0;
+}
+#Kunena div.kblock div.kbody {
+  border-bottom: none;
+}
+#Kunena .kbody:after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#Kunena .ktoggler {
+  display: none;
+}
+#Kunena div.input,
+#Kunena span.input,
+#Kunena td.input {
+  padding: 10px 0 5px;
+  display: inline-block;
+  max-width: 100%;
+}
+#Kunena div.input input,
+#Kunena span.input input,
+#Kunena td.input input {
+  margin-right: 5px;
+}
+#Kunena div.input > span,
+#Kunena span.input > span,
+#Kunena td.input > span {
+  display: block;
+  padding: 10px 0 0;
+  white-space: nowrap;
+}
+#Kunena div.input > span label,
+#Kunena span.input > span label,
+#Kunena td.input > span label {
+  display: inline-block;
+  margin-bottom: 10px;
+}
+#Kunena div.input > span button,
+#Kunena span.input > span button,
+#Kunena td.input > span button {
+  float: right;
+  margin-right: 5px;
+}
+#Kunena .klink-block span {
+  padding: 0 5px 0 0;
+}
+#Kunena .klink-block span.kprofilebox-register {
+  display: block;
+  padding: 5px 0 0;
+}
+#Kunena + div[style] {
+  display: none;
+}
+#Kunena span.kunreadforum {
+  background: none;
+}
+#Kunena span.kunreadforum:before {
+  content: '\f07c';
+  font-family: FontAwesome;
+  font-size: 32px;
+  line-height: 32px;
+}
+#Kunena span.kreadforum,
+#Kunena span.knotloginforum {
+  background: none;
+}
+#Kunena span.kreadforum:before,
+#Kunena span.knotloginforum:before {
+  content: '\f115';
+  font-family: FontAwesome;
+  font-size: 32px;
+  line-height: 32px;
+}
+#Kunena .kwhoicon {
+  background: none;
+}
+#Kunena .kwhoicon:before {
+  content: '\f0c0';
+  font-family: FontAwesome;
+  font-size: 32px;
+  line-height: 32px;
+  color: #0088cc;
+}
+#Kunena .kstatsicon {
+  background: none;
+}
+#Kunena .kstatsicon:before {
+  content: '\f080';
+  font-family: FontAwesome;
+  font-size: 32px;
+  line-height: 32px;
+  color: #0088cc;
+}
+#Kunena div.kmessage-buttons-row {
+  height: auto;
+  line-height: inherit;
+  font-size: inherit;
+}
+#Kunena .klist-actions-forum div.kmessage-buttons-row {
+  display: inline-block;
+}
+#Kunena .klist-bottom {
+  padding-bottom: 0 !important;
+}
+#Kunena .kwholegend {
+  display: none;
+}
+#Kunena .kcol-ktopicicon a:before {
+  content: '\f095';
+  font-family: FontAwesome;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0088cc;
+}
+#Kunena .kcol-ktopicicon.unanswered a:before {
+  content: '\f098';
+  font-family: FontAwesome;
+  font-size: 32px;
+  line-height: 32px;
+  color: #0088cc;
+}
+#Kunena img[src$='unanswered.png'],
+#Kunena img[src$='normal.png'] {
+  height: 0;
+  width: 0;
+}
+#Kunena .k-profile .clrline {
+  display: none;
+}
+#Kunena .k-profile .kheader a.kwho-admin {
+  font-size: 0;
+  line-height: 0;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: normal;
+}
+#Kunena .k-profile .kheader a.kwho-admin:hover:after {
+  font-size: 26px;
+}
+#Kunena .k-profile .kheader a.kwho-admin:after {
+  content: '\f044';
+  font-family: FontAwesome;
+  font-size: 20px;
+  line-height: 24px;
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+#Kunena .k-profile .kheader .back a.kwho-admin:after {
+  content: '\f112';
+}
+#Kunena div.kavatar-lg {
+  border: none;
+  display: block;
+  height: auto;
+}
+#Kunena span[class*='kbuttononline'] {
+  margin: 0;
+}
+#Kunena span[class*='kbuttononline'] span {
+  margin: 0;
+}
+#Kunena span[class*='kbuttononline'] span span {
+  padding: 0;
+  color: inherit;
+}
+#Kunena #kprofile-tabs dl.tabs,
+#Kunena #kprofile-edit dl.tabs {
+  display: table;
+  width: 100%;
+  float: none;
+  border: none;
+}
+#Kunena #kprofile-tabs dl.tabs dt,
+#Kunena #kprofile-edit dl.tabs dt {
+  display: table-cell;
+  float: none;
+  text-align: center;
+  padding: 10px 0;
+}
+#Kunena #kprofile-tabs dl.tabs dt.open,
+#Kunena #kprofile-edit dl.tabs dt.open,
+#Kunena #kprofile-tabs dl.tabs dt:hover,
+#Kunena #kprofile-edit dl.tabs dt:hover {
+  color: #0088cc;
+}
+#Kunena #kprofile-tabs dl.tabs dt + dt,
+#Kunena #kprofile-edit dl.tabs dt + dt {
+  border-left: none;
+}
+#Kunena .kicon-profile-location {
+  background: none;
+}
+#Kunena .kicon-profile-location:before {
+  content: '\f015';
+  font-family: FontAwesome;
+  font-size: 18px;
+  line-height: 15px;
+  color: #0088cc;
+}
+#Kunena .kicon-profile-gender-male {
+  background: none;
+}
+#Kunena .kicon-profile-gender-male:before {
+  content: '\f007';
+  font-family: FontAwesome;
+  font-size: 18px;
+  line-height: 15px;
+  color: #0088cc;
+}
+#Kunena .kicon-profile-birthdate {
+  background: none;
+}
+#Kunena .kicon-profile-birthdate:before {
+  content: '\f1fd';
+  font-family: FontAwesome;
+  font-size: 16px;
+  line-height: 15px;
+  color: #0088cc;
+}
+#Kunena div.kiconrow {
+  padding-right: 0;
+}
+#Kunena div.kiconrow span[class*="off"] {
+  display: none;
+}
+#Kunena div.kiconrow .kicon-profile:before {
+  font-family: FontAwesome;
+  font-size: 17px;
+  line-height: 15px;
+  color: #0088cc;
+}
+#Kunena .kicon-profile-twitter {
+  background: none;
+}
+#Kunena .kicon-profile-twitter:before {
+  content: '\f081';
+}
+#Kunena .kicon-profile-facebook {
+  background: none;
+}
+#Kunena .kicon-profile-facebook:before {
+  content: '\f082';
+}
+#Kunena .kicon-profile-linkedin {
+  background: none;
+}
+#Kunena .kicon-profile-linkedin:before {
+  content: '\f08c';
+}
+#Kunena .kicon-profile-skype {
+  background: none;
+}
+#Kunena .kicon-profile-skype:before {
+  content: '\f17e';
+}
+#Kunena .kicon-profile-delicious {
+  background: none;
+}
+#Kunena .kicon-profile-delicious:before {
+  content: '\f1a5';
+}
+#Kunena .kicon-profile-digg {
+  background: none;
+}
+#Kunena .kicon-profile-digg:before {
+  content: '\f1a6';
+}
+#Kunena .kicon-profile-flickr {
+  background: none;
+}
+#Kunena .kicon-profile-flickr:before {
+  content: '\f16e';
+}
+#Kunena .kprofile-rightcol ul {
+  margin: 0;
+}
+#Kunena .kicon-profile-email {
+  background: none;
+}
+#Kunena .kicon-profile-email:before {
+  content: '\f0e0';
+  font-family: FontAwesome;
+  font-size: 16px;
+  line-height: 15px;
+  color: #0088cc;
+}
+#Kunena #kprofile-stats .kicon-button {
+  cursor: auto;
+}
+#Kunena span.kmsgtitle,
+#Kunena span.kmsgtitle-new {
+  padding-left: 0;
+  background: none;
+}

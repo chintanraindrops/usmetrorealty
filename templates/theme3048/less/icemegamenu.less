@@ -1,0 +1,324 @@
+@import "variables.less"; // Custom for this template
+@import "bootstrap_addons/mixins.less";
+
+.icemegamenu {
+	ul, 
+	li {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+	> ul {
+		float: right;
+		margin: 0 0 @baseLineHeight;
+		padding: 0;
+		z-index: 999;
+		clear: both;		
+		> li {
+			position: relative;
+			display: block;
+			float: left;
+			> a.iceMenuTitle {
+				position: relative;
+				z-index: 999;
+				display: block;
+        		padding: 0px;
+				line-height: @menuItemLineHeight;
+				font-size: @menuItemFontSize;
+				font-weight: 600;
+				color: @menuItemColor;
+				background: @menuItemBgColor;
+				font-family: @menuItemFontFamily;
+				.transition(all .25s ease-out);
+				&:hover,
+				&.icemega_active{
+					color: @menuItemColorAct;
+					background: @menuItemBgColorAct;
+				}
+			}
+			&.hover{
+				> a.iceMenuTitle {
+					color: @menuItemColorAct;
+					background: @menuItemBgColorAct;
+				}
+			}
+			span.icemega_desc {
+				display: block;
+				padding: 0;
+				line-height: 1.25em;
+				color: @menuItemDescColor;
+			}
+			&.fullwidth{
+				position: static;
+			}
+			+li{
+				margin-left: 46px;
+			}
+		}
+		&:after{
+			clear: both;
+			display: block;
+			content: '';
+		}
+	}
+	.ice_menu{
+		padding-bottom: 20px;
+		.iceModuleTile{
+			background: @linkColor;
+			color: @white;
+			padding: 5px;
+			font-weight: normal;
+			font-size: @baseFontSize*0.8;
+			margin-bottom: 10px;
+		}
+	}
+	.mod-menu{
+		li{
+			font-size: @baseFontSize*0.8;
+			a{
+				&:hover{
+					color:lighten(@linkColor,20%);
+				}
+			}
+		}
+	}
+	.megamenu_banner_fullwidth{
+		.item_img{
+			a{
+				position: relative;
+				.item_introtext{
+					position: absolute;
+					left: 0px;
+					top: 0px;
+					bottom: 0;
+					padding: 10px;
+					.box-sizing(border-box);
+					background: rgba(0,0,0,.5);
+					width: 50%;
+					z-index: 10;
+					font-size: @baseFontSize;
+					line-height: @baseLineHeight;
+				}
+				&:before,
+				&:after{
+					display: none !important;
+				}
+			}
+		}
+	}
+	.menu_banners{
+		.item_img{
+			a{
+				position: relative;
+				&:before,
+				&:after{
+					display: none;
+				}
+				.item_content{
+					position: absolute;
+					top: 5px;
+					left: 0;
+					right: 0;
+					bottom: 15px;
+					font-size: @baseFontSize;
+					line-height: @baseLineHeight;
+					z-index: 10;
+					.item_title{
+						background: @linkColor;
+						padding: 5px 10px;
+						color: #fff;
+						display: inline-block;
+						.transition(all .5s ease);
+					}
+					.item_introtext{
+						padding: 0 20px;
+					}
+				}
+				&:hover{
+					.item_content{
+						.item_title{
+							padding: 5px 20px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+			
+div.icemegamenu ul#icemegamenu  li.active a.icemega_active > span.icemega_title{ 
+	color: @menuItemColorAct;
+}
+
+/* when dont have subtitle */
+.icemegamenu > ul > li >  a.iceMenuTitle > span.icemega_nosubtitle {
+	display: inline-block;
+}
+					
+.ice-megamenu-toggle {
+    display: none;
+	float: none;
+	border: 1px solid @inputBorder;
+	margin-bottom: @baseLineHeight;
+    a {
+	    display: block;
+	    font-size: 0;
+	    line-height: 0;
+	    padding-top: 30px;
+	    width: 100%;
+		cursor: pointer;
+		text-align: center;
+		height: 0;
+		position: relative;
+		&:before{
+			font-size: 20px;
+			line-height: 30px;
+			font-family: FontAwesome;
+			content: '\f0c9';
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			bottom: 0;
+		}
+	}
+}			
+
+ /* Submenu */
+ul.icesubMenu {
+    position: absolute;
+    z-index: 600;
+	margin: 0;
+    top: 100%;
+    left: 0px;
+	height: 0;
+	overflow: hidden;
+    opacity: 0;
+	background: @subMenuBg;
+	.transition(all .25s ease-out);
+	.translate(0, 30px);
+	pointer-events: none;
+	margin-top: 16px;
+}
+	
+			
+#icemegamenu li.hover > ul.icesubMenu {
+	opacity: 1;
+	overflow: visible;
+	.translate(0, 0px);
+	pointer-events: auto;
+}
+
+#icemegamenu ul.icesubMenu.visible{
+	height: auto;
+}
+	
+ul.icesubMenu ul > li {
+	position: relative;
+}
+	
+ul.icesubMenu li {
+	a.iceMenuTitle {
+		display: block;
+		font-size: @subMenuItemFontSize;
+		line-height: @subMenuItemLineHeight;
+		font-family: @subMenuItemFontFamily;
+		background: @subMenuItemBgColor;
+		color: @subMenuItemColor;
+		padding: 4px 10px;
+	}
+	&.active,
+	&:hover,
+	&.hover{
+		>a.iceMenuTitle {
+			color: @subMenuItemColorAct;
+			background: @subMenuItemBgColorAct;
+		}
+	}
+}
+
+/* when is parent */
+ul.icesubMenu li.parent {
+
+}
+
+/* Second Level Dropdown */
+ul.sub_level_2,
+ul.sub_level_3,
+ul.sub_level_4,
+ul.sub_level_5 {
+	top: 0px;
+	left: 100%;
+	margin-left: @baseFontSize;
+	margin-top: -@baseLineHeight/2 - 1;
+	z-index: 99999;
+	.translate(30px, 0);
+}
+	
+ul.icesubMenu ul > li.hover > ul {
+	opacity: 1;
+	overflow: visible;
+	visibility: visible;
+	.translate(0, 0);
+}
+
+/* Modules inside dropdown */
+.icesubMenu .icemega_cover_module {
+	color: @subMenuItemColor;
+	a {
+		color: @subMenuItemColor;
+		&:hover{
+			color: @subMenuItemColorAct;
+		}
+	}
+}
+
+.icesubMenu .icemega_cover_module span.iceModuleTile {
+	display: block;
+}
+
+
+.ice_righttoleft{
+	left: auto!important;
+	right: 0;
+}
+
+.icemega_modulewrap{
+	padding: 5px;
+}
+
+.nav-collapse .icesubMenu {
+	.nav > li > a,
+	.dropdown-menu a{
+		padding: 0;
+		margin-bottom: 0;
+		color: @menuItemColor;
+		&:hover{
+			color:lighten(@linkColor,20%);
+		}
+	}
+}
+
+.nav-collapse.collapse{
+	height: auto;
+}
+
+.submenu{
+	.icesubMenu{
+		.iceCols{
+			width: 100% !important;
+			>ul{
+				padding: 12px 10px !important;				
+			}
+		}
+		&.sub_level_1{
+			>li{
+				>.iceCols{
+					>ul{
+						background: @linkColor;
+					}
+				}
+			}
+		}
+	}
+}

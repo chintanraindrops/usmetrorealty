@@ -1,0 +1,37 @@
+html,
+body {
+  min-width: 980px;
+}
+#section-kmt .kmt-form-content .kmt-form-addon > div .input.kmt-location {
+  max-width: 1000px !important;
+}
+.gallery-item.gallery-grid .view .mask,
+.gallery-item.gallery-grid .view .content {
+  display: none;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader() !important;
+}
+.gallery-item.gallery-grid .view:hover .mask,
+.gallery-item.gallery-grid .view:hover .content {
+  display: block;
+}
+*[data-stellar-background-ratio] {
+  background-position-x: 50% !important;
+}
+ul#grid-list {
+  white-space: nowrap;
+}
+.fancybox-next span {
+  width: 100px;
+  margin-right: 40px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=-0.7071067811865476, M12=-0.7071067811865474, M21=0.7071067811865474, M22=-0.7071067811865476, SizingMethod='auto expand')";
+}
+.fancybox-next span:before {
+  left: 0;
+}
+.fancybox-prev span {
+  width: 100px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(M11=0.7071067811865482, M12=0.7071067811865466, M21=-0.7071067811865466, M22=0.7071067811865482, SizingMethod='auto expand')";
+}
+.fancybox-prev span:before {
+  left: 0;
+}

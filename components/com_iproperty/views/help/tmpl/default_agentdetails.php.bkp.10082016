@@ -1,0 +1,96 @@
+<?php
+/**
+ * @version 3.3.3 2015-04-30
+ * @package Joomla
+ * @subpackage Intellectual Property
+ * @copyright (C) 2009 - 2015 the Thinkery LLC. All rights reserved.
+ * @license GNU/GPL see LICENSE.php
+ */
+//echo "<pre>"; print_r($this->result);
+defined( '_JEXEC' ) or die( 'Restricted access');
+$pspan = ($this->settings->show_propupdate) ? 6 : 5;
+?>
+<h3><?php echo JText::_($this->result->subject."-	"."question"); ?></h3>
+<div class="span12">
+	<div class="span3 pull-left">
+		<span><strong><?php echo JText::_('Subject'); ?></strong></span>
+	</div>
+	<div class="span3">	
+		<span><?php echo $this->result->subject; ?></span>
+	</div>
+</div>
+<div class="span12">
+	<div class="span3 pull-left">
+		<span><strong><?php echo JText::_('Ticket Reference Number'); ?></strong></span>
+	</div>
+	<div class="span3">	
+		<span><?php echo $this->result->tc_ref_no; ?></span>
+	</div>
+</div>
+<div class="span12">
+	<div class="span3 pull-left">
+		<span><strong><?php echo JText::_('Email Address'); ?></strong></span>
+	</div>
+	<div class="span3">	
+		<span><?php echo $this->result->agent_email; ?></span>
+	</div>
+</div>
+<div class="span12">
+	<div class="span3 pull-left">
+		<span><strong><?php echo JText::_('Posted On'); ?></strong></span>
+	</div>
+	<div class="span3">	
+		<span><?php echo $this->result->post_date; ?></span>
+	</div>
+</div>
+<div class="span12">
+	<div class="span3 pull-left">
+		<span><strong><?php echo JText::_('Status'); ?></strong></span>
+	</div>
+	<div class="span3">	
+		<span><?php echo $this->result->status; ?></span>
+	</div>
+</div>
+<div class="span10" style="border:1px solid black">
+	<!-- <div style="height:70px;width:0px;border:4px solid black"></div> -->
+	<div class="span8">
+	<?php
+	$a=strtotime($this->result->post_date);
+	//$date=date('dS F Y - H:i:s A',$a);
+	$date=date('l,	 F m, Y - H:i:s A',$a);
+	?>
+		<span><strong style="font-size:25px">1</strong>   Message by <strong>you</strong> Posted on <?php echo $date?></span>
+	</div>
+	<div class="span8">
+		<span><?php echo $this->result->question?></span>
+	</div>
+	<div class="span8">
+	<form action="index.php?option=com_iproperty&view=agenthelp" method="post" name="adminForm" id="adminForm" class="form-validate ipform form-horizontal" enctype="multipart/form-data">
+		<div><strong>post reply</strong></div>
+		<div class="control-group">
+            <div class="controls">
+                <?php echo $this->form->getInput('answer'); ?>
+            </div>
+        </div>
+
+		<!-- <div><textarea rows="5" cols="35" name="reply" style="height:auto;width:auto"></textarea></div> -->
+
+		<div class="btn-toolbar">
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary" onclick="Joomla.submitbutton('help.reply')">Submit</button>
+                    <a href="index.php?option=com_iproperty&view=help" class="btn btn-primary">Cancel</a>
+                </div>
+        </div>
+        		
+        <div><input type="hidden" name="task" value="help.reply">
+        		<input type="hidden" name="question_id" value="<?php echo $this->result->id; ?>">
+        		<input type="hidden" name="agent_id" value="<?php echo $this->result->agent_id; ?>">
+        		<input type="hidden" name="agent_email" value="<?php echo $this->result->agent_email; ?>">
+        		<input type="hidden" name="buyer_email" value="<?php echo $this->result->buyer_email; ?>">
+        </div>
+	</form>
+	</div>
+</div>
+<style type="text/css">#jform_answer{height:auto;width:auto;}</style>
+
+

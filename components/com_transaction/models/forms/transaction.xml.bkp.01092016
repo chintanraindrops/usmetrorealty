@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset name="transactionform" label="COM_USERS_REGISTRATION_DEFAULT_LABEL">
+		<field name="MLS" type="text" description="NAME" filter="string" label="MLS#" size="30"/>
+		<field name="transaction_type" type="list" description="Transaction Type" filter="string" label="Transaction Type" size="1">
+			<option value="">- Select </option>
+            <option value="Sale Transaction">Sale Transaction</option>
+            <option value="Listing Transaction">Listing Transaction</option>
+            <option value="Other">Other</option>
+  		</field>
+		<field name="listing_price" type="text" description="Listing Price" filter="string" label="Listing Price"  size="30"/>
+		<field name="listing_date" type="text" description="Listing Date" filter="string" label="Listing Date"  size="30"/>
+		<field name="sold_price" type="text" description="Sold Price" filter="string" label="Sold Price"  size="30"/>
+		<field name="sold_date" type="text" description="Sold Date" filter="string" label="Sold Date"  size="30"/>
+		<field name="address" type="text" description="address" filter="string" label="Address" />
+		<field name="state" type="list" description="State" filter="string" label="State"  size="1">
+		  <option value="">- Select -</option>
+          <option value="AZ">Arizona</option>
+          <option value="OR">Oregon</option>
+          <option value="WA">Washington</option>
+		</field>
+		<field name="city" type="text" description="City" filter="string" label="City"  size="30"/>
+		<field name="zip" type="text" description="Zip" filter="string" label="Zip"  size="30"/>
+
+		<field name="buyer1Name" type="text" description="Buyer 1 Name" filter="string" label="Buyer 1 Name"  size="30"/>
+		<field name="buyer2Name" type="text" description="Buyer 2 Name" filter="string" label="Buyer 2 Name"  size="30"/>
+		<field name="buyersfulladdress" type="text" description="Buyers Full Address" filter="string" label="Buyers Full Address"  size="30"/>
+		<field name="buyer_phone" type="text" description="Buyer Phone" filter="string" label="Buyer Phone"  size="30"/>
+		<field name="buyers_Agent" type="text" description="Buyer's Agent " filter="string" label="Buyer's Agent "  size="30"/>
+		<field name="buyers_agent_email" type="text" description="Buyer's Agent Email" filter="string" label="Buyer's Agent Email"  size="30"/>
+		<field name="buyers_agent_phone" type="text" description="Buyer's Agent Phone" filter="string" label="Buyer's Agent Phone"  size="30"/>
+
+		<field name="seller1Name" type="text" description="Seller 1 Name" filter="string" label="Seller 1 Name"  size="30"/>
+		<field name="seller2Name" type="text" description="Seller 2 Name" filter="string" label="Seller 2 Name"  size="30"/>
+		<field name="sellersfulladdress" type="text" description="Seller Full Address" filter="string" label="Seller Full Address"  size="30"/>
+		<field name="seller_phone" type="text" description="Seller Phone" filter="string" label="Seller Phone"  size="30"/>
+		<field name="seller_Agent" type="text" description="Seller's Agent " filter="string" label="Seller's Agent "  size="30"/>
+		<field name="seller_agent_email" type="text" description="Seller's Agent Email" filter="string" label="Seller's Agent Email"  size="30"/>
+		<field name="seller_agent_phone" type="text" description="Seller's Agent Phone" filter="string" label="Seller's Agent Phone"  size="30"/>
+ 
+		<field name="closing_title_escrow" type="text" description="Closing Title/Escrow" filter="string" label="Closing Title/Escrow"  size="30"/>
+		<field name="escrow_tran" type="text" description="Escrow Tran #" filter="string" label="Escrow Tran #"  size="30"/>
+		<field name="title_full_ddress" type="text" description="Title Full Address" filter="string" label="Title Full Address"  size="30"/>
+		<field name="title_phone" type="text" description="Title Phone" filter="string" label="Title Phone"  size="30"/>
+		<field name="title_agent" type="text" description="Title Agent" filter="string" label="Title Agent"  size="30"/>
+		<field name="title_email_address" type="text" description="Title Email Address" filter="string" label="Title Email Address"  size="30"/>
+
+		<field name="commission_amount" type="text" description="Commission Amount" filter="string" label="Commission Amount"  size="30"/>
+		<field name="commission_type" type="list" description="Commission Type  " filter="string" label="Commission Type  "  size="1">
+			<option value="">- Select </option>
+            <option value="Percentage">Percentage</option>
+            <option value="Fixed">Fixed</option>
+            <option value="Referral Fee">Referral Fee</option>            
+            <option value="Other">Other</option>
+		</field>
+		<field name="earnest_money_amount" type="text" description="Earnest Money Amount" filter="string" label="Earnest Money Amount"  size="30"/>
+		<field name="earnest_money_held_by" type="list" description="Earnest Money Held By" filter="string" label="Earnest Money Held By"  size="1">
+			<option value="">- Select </option>
+            <option value="Title">Title</option>
+            <option value="Listing Co.">Listing Co.</option>
+            <option value="Selling Co.">Selling Co.</option>            
+		</field>
+
+		<field name="home_warranty_provided" type="list" description="Earnest Money Held By " filter="string" label="Home Warranty Provided By "  size="1">
+			<option value="">- Select </option>
+            <option value="Buyer Agent">Buyer Agent</option>
+            <option value="Seller Agent">Seller Agent</option>
+            <option value="Buyer">Buyer</option>
+            <option value="Seller">Seller</option>
+            <option value="None">None</option>
+            <option value="Other">Other</option>
+		</field>
+		<field name="notes_for_broker_instructions" type="text" description="Notes For Broker Instructions" filter="string" label="Notes For Broker Instructions"  size="30"/>
+		<field name="agent_notes_for_transaction_Office" type="text" description="Agent Notes For This Transaction And For Office" filter="string" label="Agent Notes For This Transaction And For Office"  size="30"/>
+		<field name="Office_notes" type="text" description="Office Notes" filter="string" label="Office Notes"  size="30"/>
+		<field name="upload_files"  multiple="multiple" type="file" label="Upload" description="Upload" size="10"/>
+	</fieldset>
+</form>
+

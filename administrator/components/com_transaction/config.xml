@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset label="COM_TRANSACTION" name="Transaction">
+		<field name="arizona_transaction" type="text" filter="safehtml" label="Arizona Transaction" description="Arizona Transaction" hint="Arizona Transaction"/>
+
+		<field name="oregon_transaction" type="text" filter="safehtml" label="Oregon Transaction" description="Oregon Transaction" hint="Oregon Transaction"/>
+
+		<field name="washington_transaction" type="text" filter="safehtml" label="Washington Transaction" description="Washington Transaction" hint="Washington Transaction"/>
+
+	</fieldset>
+	<fieldset label="Email Template" name="email">
+		<field name="email_editor" type="editor" label="Email" description="Email" width="300" filter="safehtml" />
+
+	</fieldset>
+	<fieldset label="Company-Email" name="c_email">
+		<field name="cmpny_email" type="text" filter="safehtml" label="Company-Email" description="Company-Email" hint="Company-Email"/>
+	</fieldset>
+	<fieldset name="permissions" description="JCONFIG_PERMISSIONS_DESC" label="JCONFIG_PERMISSIONS_LABEL">
+		<field name="rules" type="rules" component="com_facebook_instant_articles" class="inputbox" filter="rules" validate="rules" label="JCONFIG_PERMISSIONS_LABEL" section="component" />
+	</fieldset>
+
+	<fieldset name="component">
+		<field name="save_history" type="radio" class="btn-group btn-group-yesno" default="0" label="JGLOBAL_SAVE_HISTORY_OPTIONS_LABEL" description="JGLOBAL_SAVE_HISTORY_OPTIONS_DESC">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+
+		<field name="history_limit" type="text" filter="integer" label="JGLOBAL_HISTORY_LIMIT_OPTIONS_LABEL" description="JGLOBAL_HISTORY_LIMIT_OPTIONS_DESC" default="5"/>
+	</fieldset>
+</config>

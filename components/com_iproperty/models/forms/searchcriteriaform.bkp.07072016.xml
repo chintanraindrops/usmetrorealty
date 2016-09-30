@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+<fieldset name="description" addfieldpath="/administrator/components/com_iproperty/models/fields">
+		<field name="id" type="text" default="0" readonly="true" class="readonly" label="JGLOBAL_FIELD_ID_LABEL" 	description ="JGLOBAL_FIELD_ID_DESC" />
+
+        <!-- details -->
+        <field name="title" type="text" class="inputbox" size="50" label="COM_IPROPERTY_TITLE" description="" />
+        <field name="hometype" type="stypes" class="inputbox" size="1" label="Home_Type" description="" required="true"/>
+        <field name="minprice" type="text" class="inputbox" size="20" label="COM_IPROPERTY_PRICE" description="COM_IPROPERTY_PRICE_TIP" required="true" />
+        <field name="maxprice" type="text" class="inputbox" label="" description="" required="true"/>
+        <field name="city" type="text" class="inputbox" size="50" label="COM_IPROPERTY_CITY" description="" required="true" />
+        <field name="locstate" type="locstate" class="inputbox" size="1" label="COM_IPROPERTY_STATE" description="" required="true"/>
+    </fieldset>
+<fieldset name="details" addfieldpath="/administrator/components/com_iproperty/models/fields">
+        <field name="beds" type="beds" label="COM_IPROPERTY_BEDS" description="" />
+        <field name="baths" type="baths" label="COM_IPROPERTY_BATHS" description="" />
+        <field name="total_units" type="integer" default="1" label="COM_IPROPERTY_TOTALUNITS" description="COM_IPROPERTY_TOTALUNITS_DESC" first="1" last="10" step="1" />
+        <field name="sqft" type="text" class="inputbox" size="20" label="COM_IPROPERTY_SQFT" description="" />
+        <field name="lotsize" type="text" class="inputbox" size="20" label="COM_IPROPERTY_LOT_SIZE" description="" />
+        <field name="lot_acres" type="text" class="inputbox" size="20" label="COM_IPROPERTY_LOT_ACRES" description="" />
+        <field name="lot_type" type="text" class="inputbox" size="20" label="COM_IPROPERTY_LOT_TYPE" description="" />
+        <field name="heat" type="text" class="inputbox" size="20" label="COM_IPROPERTY_HEAT" description="" />
+        <field name="cool" type="text" class="inputbox" size="20" label="COM_IPROPERTY_COOL" description="" />
+        <field name="fuel" type="text" class="inputbox" size="20" label="COM_IPROPERTY_FUEL" description="" />
+        <field name="garage_type" type="text" class="inputbox" size="20" label="COM_IPROPERTY_GARAGE_TYPE" description="" />
+        <field name="garage_size" type="text" class="inputbox" size="20" label="COM_IPROPERTY_GARAGE_SIZE" description="" />
+        <field name="siding" type="text" class="inputbox" size="20" label="COM_IPROPERTY_SIDING" description="" />
+        <field name="roof" type="text" class="inputbox" size="20" label="COM_IPROPERTY_ROOF" description="" />
+        <field name="reception" type="text" class="inputbox" size="20" label="COM_IPROPERTY_RECEPTION" description="" />
+        <field name="tax" type="text" class="inputbox" size="20" label="COM_IPROPERTY_TAX" description="" />
+        <field name="income" type="text" class="inputbox" size="20" label="COM_IPROPERTY_INCOME" description="" />
+        <!-- column two -->
+        <field name="yearbuilt" type="text" class="inputbox" size="20" label="COM_IPROPERTY_YEAR_BUILT" description="" />
+        <field name="zoning" type="text" class="inputbox" size="20" label="COM_IPROPERTY_ZONING" description="" />
+        <field name="propview" type="text" class="inputbox" size="20" label="COM_IPROPERTY_PROPVIEW" description="" />
+        <field name="school_district" type="text" class="inputbox" size="20" label="COM_IPROPERTY_SCHOOL_DISTRICT" description="" />
+        <field name="style" type="text" class="inputbox" size="20" label="COM_IPROPERTY_STYLE" description="" />
+        <field name="frontage" type="radio" class="inputbox" label="COM_IPROPERTY_FRONTAGE" description="" default="0">
+            <option value="1">JYES</option>
+			<option value="0">JNO</option>
+        </field>
+        <field name="reo" type="radio" class="inputbox" label="COM_IPROPERTY_REO" description="" default="0">
+            <option value="1">JYES</option>
+			<option value="0">JNO</option>
+        </field>
+        <field name="hoa" type="radio" class="inputbox" label="COM_IPROPERTY_HOA" description="" default="0">
+            <option value="1">JYES</option>
+			<option value="0">JNO</option>
+        </field>        
+    </fieldset>
+
+</form>

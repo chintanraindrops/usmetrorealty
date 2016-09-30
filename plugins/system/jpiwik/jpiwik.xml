@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" method="upgrade" type="plugin" group="system">
+    <name>PLG_SYSTEM_JPIWIK</name>
+    <author>Lhacky</author>
+    <creationDate>August 2012</creationDate>
+    <copyright>Copyright nfr 2011</copyright>
+    <license>GNU General Public License version 2 or later</license>
+    <authorEmail>lhacky@altervista.org</authorEmail>
+    <authorUrl>http://lhacky.altervista.org/jextensions/</authorUrl>
+    <version>0.6</version>
+    <description>PLG_SYSTEM_JPIWIK_DESC</description>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.plg_system_jpiwik.ini</language>
+        <language tag="en-GB">en-GB/en-GB.plg_system_jpiwik.sys.ini</language>
+    </languages>
+    <files>
+        <filename plugin="jpiwik">jpiwik.php</filename>
+        <filename>index.html</filename>
+    </files>    
+		
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field name="jpiwik_site_id" type="text" description="PLG_SYSTEM_JPIWIK_SITEID_DESC"
+                       label="PLG_SYSTEM_JPIWIK_SITEID" size="4" />
+                <field name="jpiwik_http_url" type="text" description="PLG_SYSTEM_JPIWIK_HTTP_DESC"
+                       label="PLG_SYSTEM_JPIWIK_HTTP" size="50" />				
+                <field name="jpiwik_https_url" type="text" description="PLG_SYSTEM_JPIWIK_HTTPS_DESC"
+                       label="PLG_SYSTEM_JPIWIK_HTTPS" size="50" />				                       
+            </fieldset>
+            <fieldset name="JPIWIK_CUSTOM_VARIABLES">
+                <field name="jpiwik_cv_active_menu" type="list" default="1" label="PLG_SYSTEM_JPIWIK_CV_ACTIVE_MENU" description="PLG_SYSTEM_JPIWIK_CV_ACTIVE_MENU_DESC">
+                    <option value="0">PLG_SYSTEM_JPIWIK_DISABLED</option>
+                    <option value="1">PLG_SYSTEM_JPIWIK_ENABLED</option>
+                </field>                
+                <field name="jpiwik_cv_logged_user" type="list" default="1" label="PLG_SYSTEM_JPIWIK_CV_LOGGED_USER" description="PLG_SYSTEM_JPIWIK_CV_LOGGED_USER_DESC">
+                    <option value="0">PLG_SYSTEM_JPIWIK_DISABLED</option>
+                    <option value="1">PLG_SYSTEM_JPIWIK_ENABLED</option>
+                </field>                
+                <field name="jpiwik_cv_component" type="list" default="1" label="PLG_SYSTEM_JPIWIK_CV_COMPONENT" description="PLG_SYSTEM_JPIWIK_CV_COMPONENT_DESC">
+                    <option value="0">PLG_SYSTEM_JPIWIK_DISABLED</option>
+                    <option value="1">PLG_SYSTEM_JPIWIK_ENABLED</option>
+                </field>                                
+            </fieldset>
+
+            <fieldset name="JPIWIK_PAGE_TITLE">
+                <field name="jpiwik_pt_default" type="list" default="0" label="PLG_SYSTEM_JPIWIK_PT_DEFAULT" description="PLG_SYSTEM_JPIWIK_PT_DEFAULT_DESC">
+                    <option value="0">PLG_SYSTEM_JPIWIK_PT_DEFAULT_DTITLE</option>
+                    <option value="1">PLG_SYSTEM_JPIWIK_PT_DEFAULT_DDOMAIN</option>
+                    <option value="2">PLG_SYSTEM_JPIWIK_PT_DEFAULT_JOOMLA_SITENAME</option>
+                </field>                
+                <field name="jpiwik_pt_content" type="list" default="1" label="PLG_SYSTEM_JPIWIK_PT_CONTENT" description="PLG_SYSTEM_JPIWIK_PT_CONTENT_DESC">
+                    <option value="0">PLG_SYSTEM_JPIWIK_DISABLED</option>
+                    <option value="1">PLG_SYSTEM_JPIWIK_ARTICLETITLE</option>
+                    <option value="2">PLG_SYSTEM_JPIWIK_CATEGORYPATH</option>
+                </field>                                
+            </fieldset>            
+
+            <fieldset name="JPIWIK_DOWNLOAD_OUTLINKS">
+                <field name="jpiwik_download_css" type="text" description="PLG_SYSTEM_JPIWIK_DOWNLOAD_CSS_DESC"
+                       label="PLG_SYSTEM_JPIWIK_DOWNLOAD_CSS" />
+                <field name="jpiwik_outlink_css" type="text" description="PLG_SYSTEM_JPIWIK_OUTLINK_CSS_DESC"
+                       label="PLG_SYSTEM_JPIWIK_OUTLINK_CSS" />
+            </fieldset>  
+
+            <fieldset name="JPIWIK_COOKIE_CONFIG">
+                <field name="jpiwik_domain_cookie" type="text" description="PLG_SYSTEM_JPIWIK_DOMAIN_COOKIE_DESC"
+                       label="PLG_SYSTEM_JPIWIK_DOMAIN_COOKIE" />
+                <field name="jpiwik_ignore_outlink" type="text" description="PLG_SYSTEM_JPIWIK_IGNORE_OUTLINK_DESC"
+                       label="PLG_SYSTEM_JPIWIK_IGNORE_OUTLINK" />
+                <field name="jpiwik_dl_out" type="list" default="1" label="PLG_SYSTEM_JPIWIK_DL_OUT" description="PLG_SYSTEM_JPIWIK_DL_OUT_DESC">
+                    <option value="0">PLG_SYSTEM_JPIWIK_DL_OUT_DISABLE</option>
+                    <option value="1">PLG_SYSTEM_JPIWIK_DL_OUT_NORMAL</option>                    
+                </field>                                                       
+            </fieldset>            
+        </fields>
+    </config>
+</extension>

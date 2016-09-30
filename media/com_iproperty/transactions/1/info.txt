@@ -1,0 +1,46 @@
+in index.class.php file
+
+op => operation 
+
+register->register form data 
+login-> login process
+changePass->change password process
+sendmail->send mail in perticular user email
+updatecontent-> store content update 
+getsubcats->get category id and name 
+addcategory->category add
+deletecategory-> delete category code
+updatecategory-> update category code
+check_mail->check mail code in to check database status 
+addstore-> all store information add with mail process
+deletestore-> delete store code
+approvestore->approve or cancel code for admin code
+storeactivity->means table field status update code 
+updatestore->all store data update
+ListStores->all table data fetch code
+addcampaing-> add compaing code 
+campaingactivity-> compaing activity statuis change this code
+deletecampaing-> delete compaing code
+check_mail_user-> check mail code for perticular user
+adduser-> user data enter in this table for user 
+deleteuser-> detele user code for user 
+updateuser-> all information update code for user 
+addfaq->question and ans code 
+deletefaq-> delete thid info code 
+top10camp->top 10 compaing fetch data code 
+store_logo->fetch data logo, cover, popular
+contact_content-> content and page and id fetch 
+Totaluser-> all user informaion count
+TotalStores-> all store information count
+Totalcategory-> all category informaion count
+TotalCampaing-> all compaing informaion count
+TotalCampaingbystore->all compaing informaion count by store name
+show_maincat-> main category show in table dta
+catby_main-> category by main and its id
+profile_image->profile image fetch
+list_campaing->list of compaing informaion data
+contentlist-> content list and its all data fetch
+view_campaing-> compaing for perticular id
+user_profile-> perticular user id all data fetch information 
+
+

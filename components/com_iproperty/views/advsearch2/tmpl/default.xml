@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_IPROPERTY_ADVSEARCH2">
+		<message>
+			<![CDATA[COM_IPROPERTY_ADVSEARCH_DESC]]>
+		</message>
+	</layout>
+    <fields name="params">
+        <fieldset name="basic">
+            <field name="show_ip_title" type="list" label="COM_IPROPERTY_SHOW_IP_TITLE" default="1" description="COM_IPROPERTY_SHOW_IP_TITLE_DESC">
+                <option	value="0">JHIDE</option>
+                <option	value="1">JSHOW</option>
+            </field>
+            <field name="advsearch_default" type="list" label="COM_IPROPERTY_DEFAULT_ADVSEARCH" default="0" description="COM_IPROPERTY_DEFAULT_ADVSEARCH_DESC">
+                <option	value="0">JNO</option>
+                <option	value="1">JYES</option>
+            </field>
+            <field name="show_ip_disclaimer" type="list" label="COM_IPROPERTY_SHOW_IP_DISCLAIMER" default="0" description="COM_IPROPERTY_SHOW_IP_DISCLAIMER_DESC">
+                <option	value="0">JHIDE</option>
+                <option	value="1">JSHOW</option>
+            </field>
+        </fieldset>
+        <fieldset name="advanced" addfieldpath="/administrator/components/com_iproperty/models/fields">
+            <field name="adv_show_shapetools" type="list" default="" label="COM_IPROPERTY_ADV_SHOW_SHAPETOOLS">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="1">JYES</option>
+                <option value="0">JNO</option>
+            </field>
+			<!-- if none of the following params are set, then will default to IP advanced search settings -->
+            <field name="settings_header" type="header" default="COM_IPROPERTY_SETTINGS" description="COM_IPROPERTY_ADVSEARCH_DEFAULTS_DESC" />
+            <field name="adv_perpage" type="list" class="inputbox" label="COM_IPROPERTY_PROPERTIES_PER_PAGE" description="COM_IPROPERTY_PER_PAGE_TIP" size="1" default="">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="2500">2500</option>
+				<option value="3000">3000</option>
+				<option value="3500">3500</option>
+				<option value="4000">4000</option>
+				<option value="5000">5000</option>
+				<option value="6000">6000</option>
+				<option value="7000">7000</option>
+				<option value="8000">8000</option>
+				<option value="9000">9000</option>
+				<option value="10000">10000</option>
+				<option value="15000">15000</option>
+				<option value="20000">20000</option>
+				<option value="25000">25000</option>
+            </field>
+            <field name="adv_price_low" type="text" class="inputbox" size="10" label="COM_IPROPERTY_ADV_PRICE_LOW" description="" default="" />
+            <field name="adv_price_high" type="text" class="inputbox" size="10" label="COM_IPROPERTY_ADV_PRICE_HIGH" description="" default="" />
+            <field name="adv_beds_low" type="text" class="inputbox" size="10" label="COM_IPROPERTY_ADV_BEDS_LOW" description="" default="" />
+            <field name="adv_baths_low" type="text" class="inputbox" size="10" label="COM_IPROPERTY_ADV_BATHS_LOW" description="" default="" />
+            <field name="adv_sqft_low" type="text" class="inputbox" size="10" label="COM_IPROPERTY_ADV_SQFT_LOW" description="" default="" />
+            <field name="adv_default_lat" type="text" class="inputbox" size="20" label="COM_IPROPERTY_ADV_DEFAULT_LAT" description="" default="" />
+            <field name="adv_default_long" type="text" class="inputbox" size="20" label="COM_IPROPERTY_ADV_DEFAULT_LONG" description="" default="" />
+            <field name="adv_default_zoom" type="integer" class="inputbox" first="8" last="21" step="1" label="COM_IPROPERTY_ADV_DEFAULT_ZOOM" description="COM_IPROPERTY_ADV_DEFAULT_ZOOM_DESC" />
+            <field name="adv_maptype" type="list" class="inputbox" label="COM_IPROPERTY_ADV_DEFAULT_MAPTYPE" description="" size="1">
+                <option value="">JGLOBAL_USE_GLOBAL</option>
+                <option value="HYBRID">HYBRID</option>
+                <option value="ROADMAP">ROADMAP</option>
+                <option value="SATELLITE">SATELLITE</option>
+                <option value="TERRAIN">TERRAIN</option>
+            </field>
+            <!-- ADVSEARCH CRITERIA -->
+            <field name="defaults_header" type="header" default="COM_IPROPERTY_DEFAULTS" description="" />
+            <field name="default_cat" type="ipcategory" default="" label="COM_IPROPERTY_CATEGORY" description="" />
+        </fieldset>
+    </fields>
+</metadata>

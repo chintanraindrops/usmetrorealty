@@ -1,0 +1,107 @@
+<?php
+/**
+ * @version 3.3.3 2015-04-30
+ * @package Joomla
+ * @subpackage Intellectual Property
+ * @copyright (C) 2009 - 2015 the Thinkery LLC. All rights reserved.
+ * @license GNU/GPL see LICENSE.php
+ */
+
+defined('_JEXEC' ) or die( 'Restricted access');
+jimport('joomla.application.component.model');
+
+class IpropertyModelHelp extends JModelForm
+{
+    public function getForm($data = array(), $loadData = true)
+	{
+		// Get the form.
+		$form = $this->loadForm('com_iproperty.help', 'Help', array('control' => 'jform', 'load_data' => true, 'form_type' => 'request'));
+		if (empty($form)) {
+			return false;
+		}
+		return $form;
+	}
+	function save($value){
+		$app   = JFactory::getApplication();
+		$db = JFactory::getDbo();
+		$join = $db->getQuery(true)
+		->select('email')
+	    ->from('#__iproperty AS p')
+	    ->join('INNER', '#__iproperty_agentmid AS m ON (p.id = m.prop_id)')
+	    ->join('INNER', '#__iproperty_agents AS ag ON (m.agent_id = ag.id)')
+	    ->where($db->quoteName('p.mls_id')."=".$db->quote($value['listing_no']));
+	    $db->setQuery($join);
+	    $res = $db->loadObject();
+
+	    $config = JFactory::getConfig();
+		$adminEmail = $config->get( 'mailfrom' );
+		$adminname = $config->get( 'fromname' );
+		$mail=array($adminEmail,$res->email);
+
+		$user = JFactory::getUser();
+		$buyer = $db->getQuery(true);
+		$buyer->select('*');
+		$buyer->from($db->quoteName('#__iproperty_agents'));
+		$buyer->where($db->quoteName('user_id')." = ".$user->id);
+		$db->setQuery($buyer);
+		$val = $db->loadObject();
+
+		$tc_ref_no = (rand(1000,9999))."-".(rand(1000,9999))."-".(rand(1000,9999));
+		
+		$query = $db->getQuery(true);
+		$columns = array('subject', 'listing_no', 'question', 'tc_ref_no', 'status', 'user_id', 'post_date');
+		//var_dump($columns);exit;
+		$values = array($db->quote($value['subject']),$db->quote($value['listing_no']),$db->quote($value['question']),$db->quote($tc_ref_no), 1, $user->id);
+		$query
+	    ->insert($db->quoteName('#__iproperty_help'))
+	    ->columns($db->quoteName($columns))
+	    ->values(implode(',', $values).',NOW()');
+	    $db->setQuery($query);
+		//echo($query->__toString());exit;
+		if ( $db->execute() !== true ) {
+		    JError::raiseError( 4711, 'A severe error occurred' );
+		} else {
+			$mailer = JFactory::getMailer();
+			$subject = "Question Received";
+			$from   = $adminEmail;
+			$fromname ='usmetrorealty';
+			$body = "You have one question receive from <strong>".$val->fname." ".$val->lname."</strong>(Buyer).<br/>
+					<strong>Subject </strong>:- ".$value['subject']."<br/>
+					<strong>For </strong>:- ".$value['listing_no']."<br/>
+					<strong>Question </strong>:- ".$value['question']."<div style='margin-top:150px'><strong>Regards</strong><br/><p>".$adminname."</p></div>";
+
+			$sender = array( 
+				$from,
+				$fromname
+			);
+			
+			$mailer->setSender($sender); 
+			$mailer->addRecipient($mail);
+			$mailer->setSubject($subject);
+			$mailer->setBody($body);
+			$mailer->isHTML(TRUE);
+			$send = $mailer->Send();
+			if ( $send !== true ) {
+				JFactory::getApplication()->enqueueMessage('Mail not send');
+			} else {
+				JFactory::getApplication()->enqueueMessage('Question SuccessFully Sent');
+			}
+		    //JFactory::getApplication()->enqueueMessage('Your question SuccessFully Sent');
+		}
+		$allDone =& JFactory::getApplication();
+		$allDone->redirect('index.php?option=com_iproperty&view=help');
+	}
+	function getData(){
+			$app   = JFactory::getApplication();
+			$db = JFactory::getDbo();
+	
+			$user = JFactory::getUser();
+			$query = $db->getQuery(true);
+			$query->select('*');
+			$query->from($db->quoteName('#__iproperty_help'));
+			$query->where($db->quoteName('user_id')." = ".$user->id);
+			$db->setQuery($query);
+			$results = $db->loadObjectlist();
+    		return $results;
+	}
+}

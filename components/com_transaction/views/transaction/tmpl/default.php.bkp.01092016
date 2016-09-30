@@ -1,0 +1,223 @@
+<?php
+/**
+ * @package     Joomla.Administrator
+ * @subpackage  com_helloworld
+ *
+ * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
+// No direct access to this file
+defined('_JEXEC') or die('Restricted access');
+$document = JFactory::getDocument();
+$document->addStyleSheet('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css');
+$document->addScript('http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+$document->addScript('http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js');
+echo $this->loadTemplate('toolbar');
+
+?>
+<h1><?php echo $this->msg; ?></h1>
+<style type="text/css">
+        .nav-tabs a, .nav-tabs a:hover, .nav-tabs a:focus
+        {
+            outline: 0;
+        }
+    </style>
+        <form action="index.php?option=com_transaction&view=transaction" method="post" name="adminForm" id="adminForm" class="form-validate ipform form-horizontal" enctype="multipart/form-data">
+            <div class="btn-toolbar">
+                <div class="btn-group">
+                    <button type="submit" class="btn btn-primary" onclick="Joomla.submitbutton('transaction.save')">Save</button>
+                    <a href="index.php?option=com_transaction&view=transactionlist" class="btn btn-primary">Cancel</a>
+                </div>
+            </div>
+    <div class="panel panel-default" style="width:100%; padding: 10px; margin: 10px">
+        <div id="Tabs" role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a href="#information" aria-controls="personal" role="tab" data-toggle="tab">
+                    Property Information </a></li>
+                <li><a href="#propertyaddress" aria-controls="employment" role="tab" data-toggle="tab">Property Address</a></li>
+                <li><a href="#buyersinformation" aria-controls="employment" role="tab" data-toggle="tab">Buyers Information</a></li>
+                 <li><a href="#sellersinformation" aria-controls="employment" role="tab" data-toggle="tab">Sellers Information</a></li>
+                 <li><a href="#titleinformation" aria-controls="employment" role="tab" data-toggle="tab">Title Information</a></li>
+                 <li><a href="#miscinformation" aria-controls="employment" role="tab" data-toggle="tab">Misc Information</a></li>
+                 <li><a href="#upload_files" aria-controls="employment" role="tab" data-toggle="tab">Upload</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content" style="padding-top: 20px">
+                <div role="tabpanel" class="tab-pane active" id="information">
+                    <div class="control-group">
+						<div class="control-label"><?php echo $this->form->getLabel('MLS'); ?></div>
+						<div class="controls"><?php echo $this->form->getInput('MLS'); ?></div>
+					</div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('transaction_type'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('transaction_type'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('listing_price'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('listing_price'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('listing_date'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('listing_date'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('sold_price'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('sold_price'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('sold_date'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('sold_date'); ?></div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="propertyaddress">
+                   <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('address'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('address'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('state'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('state'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('city'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('city'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('zip'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('zip'); ?></div>
+                    </div>
+                </div>
+                 <div role="tabpanel" class="tab-pane" id="buyersinformation">
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('buyer1Name'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('buyer1Name'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('buyer2Name'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('buyer2Name'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('buyersfulladdress'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('buyersfulladdress'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('buyer_phone'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('buyer_phone'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('buyers_Agent'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('buyers_Agent'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('buyers_agent_email'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('buyers_agent_email'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('buyers_agent_phone'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('buyers_agent_phone'); ?></div>
+                    </div>
+                </div>
+               <div role="tabpanel" class="tab-pane" id="sellersinformation">
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('seller1Name'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('seller1Name'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('seller2Name'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('seller2Name'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('sellersfulladdress'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('sellersfulladdress'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('seller_phone'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('seller_phone'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('seller_Agent'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('seller_Agent'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('seller_agent_email'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('seller_agent_email'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('seller_agent_phone'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('seller_agent_phone'); ?></div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="titleinformation">
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('closing_title_escrow'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('closing_title_escrow'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('escrow_tran'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('escrow_tran'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('title_full_ddress'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('title_full_ddress'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('title_phone'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('title_phone'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('title_agent'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('title_agent'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('title_email_address'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('title_email_address'); ?></div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="miscinformation">
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('commission_amount'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('commission_amount'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('commission_type'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('commission_type'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('earnest_money_amount'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('earnest_money_amount'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('earnest_money_held_by'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('earnest_money_held_by'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('home_warranty_provided'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('home_warranty_provided'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('notes_for_broker_instructions'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('notes_for_broker_instructions'); ?></div>
+                    </div>
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('agent_notes_for_transaction_Office'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('agent_notes_for_transaction_Office'); ?></div>
+                    </div>
+                     <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('Office_notes'); ?></div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="upload_files">
+                    <div class="control-group">
+                        <div class="control-label"><?php echo $this->form->getLabel('upload_files'); ?></div>
+                        <div class="controls"><?php echo $this->form->getInput('upload_files'); ?>
+                        <!-- <button type="button" class="btn btn-primary" id="upload_file">Save</button> --></div>
+                    </div>
+            </div> 
+        </div>
+    </div>
+    <input type="hidden" name="task" value="transaction.save">
+    </form>
+<?php //index.php?option=com_register&controller=register&task=save 
+?>
+

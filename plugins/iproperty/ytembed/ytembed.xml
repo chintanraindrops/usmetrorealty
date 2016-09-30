@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.0" type="plugin" group="iproperty" method="upgrade">
+	<name>IProperty - YouTube Video Embed</name>
+	<author>The Thinkery</author>
+	<creationDate>June 2014</creationDate>
+	<copyright>Copyright (C) 2009 - 2015 The Thinkery LLC. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>info@thethinkery.net</authorEmail>
+	<authorUrl>www.thethinkery.net</authorUrl>
+	<version>3.3.3</version>
+	<description>Intellectual Property YouTube Embed Video. To use, add ONLY the YouTube video ID as the property's video tab value. For example, for the video at http://www.youtube.com/watch?v=dQw4w9WgXcQ you'd add dQw4w9WgXcQ to the property's video input box.</description>
+	<files>
+		<filename plugin="ytembed">ytembed.php</filename>
+        <filename>index.html</filename>
+	</files>
+	<languages>
+	   <language tag="en-GB">en-GB.plg_iproperty_ytembed.ini</language>
+	</languages>
+	<config>
+        <fields name="params">
+            <fieldset name="basic">
+				<field name="tabtitle" type="text" default="PLG_IP_YTEMBED_VIDEO" label="PLG_IP_YTEMBED_TABTITLE" description="PLG_IP_YTEMBED_TABTITLE_DESC" />
+                <field name="position" type="list" default="0" label="PLG_IP_YTEMBED_POSITION" description="PLG_IP_YTEMBED_POSITION_DESC">
+                  <option value="0">PLG_IP_YTEMBED_TOP</option>
+                  <option value="1">PLG_IP_YTEMBED_MAP</option>
+                  <option value="2">PLG_IP_YTEMBED_MAIN</option>
+                </field>
+                <field name="order" type="list" default="0" label="PLG_IP_YTEMBED_ORDER" description="PLG_IP_YTEMBED_ORDER_DESC">
+                  <option value="0">PLG_IP_YTEMBED_FIRST</option>
+                  <option value="1">PLG_IP_YTEMBED_LAST</option>
+                </field>
+                <field name="height" type="integer" default="300" label="PLG_IP_YTEMBED_HEIGHT" description="PLG_IP_YTEMBED_HEIGHT_DESC" first="250" last="450" step="25" />
+             </fieldset>
+         </fields>
+     </config>
+</extension>

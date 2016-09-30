@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="plugin" group="iproperty" version="3.1" method="upgrade">
+    <name>IProperty - Craigslist Output</name>
+    <creationDate>Sept 2014</creationDate>
+    <author>The Thinkery</author>
+    <authorEmail>info@thethinkery.net</authorEmail>
+    <authorUrl>http://www.thethinkery.net</authorUrl>
+    <copyright>Copyright 2014 The Thinkery LLC. All rights reserved.</copyright>
+    <license>GNU/GPL</license>
+    <version>3.3</version>
+    <description>Creates tab after admin property edit view showing HTML for Craigslist posting.</description>
+    <languages>
+       <language tag="en-GB">en-GB.plg_iproperty_craigslist.ini</language>
+    </languages>
+    <files>
+        <filename plugin="craigslist">craigslist.php</filename>
+    </files>
+    <config>
+		<fields name="params">
+			<fieldset name="basic" addfieldpath="/administrator/components/com_iproperty/models/fields">
+                <field name="tabtitle" type="text" default="" label="PLG_IP_CRAIGSLIST_TABTITLE" description="PLG_IP_CRAIGSLIST_TABTITLE_DESC" />
+                <field name="plain" type="list" default="0" label="PLG_IP_CRAIGSLIST_HTML" description="PLG_IP_CRAIGSLIST_HTML_DESC">
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+                </field>
+                <field name="images" type="list" default="0" label="PLG_IP_CRAIGSLIST_IMAGES" description="PLG_IP_CRAIGSLIST_IMAGES_DESC">
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+                </field>
+                <field name="email" type="list" default="0" label="PLG_IP_CRAIGSLIST_EMAIL" description="PLG_IP_CRAIGSLIST_EMAIL_DESC">
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+                </field>
+                <field name="phone" type="list" default="0" label="PLG_IP_CRAIGSLIST_PHONE" description="PLG_IP_CRAIGSLIST_PHONE_DESC">
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+                </field>
+                <field name="agent" type="list" default="0" label="PLG_IP_CRAIGSLIST_AGENT" description="PLG_IP_CRAIGSLIST_AGENT_DESC">
+                  <option value="0">JNO</option>
+                  <option value="1">JYES</option>
+                </field>
+				<field name="disclaimer" type="textarea" default="Equal Housing Opportunity | All Information Deemed Accurate but not Guaranteed" label="PLG_IP_CRAIGSLIST_DISCLAIMER" description="PLG_IP_CRAIGSLIST_DISCLAIMER_DESC" />
+            </fieldset>
+        </fields>
+    </config>
+</extension>

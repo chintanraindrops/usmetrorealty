@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_IPROPERTY_COMPANIES">
+		<message>
+			<![CDATA[COM_IPROPERTY_COMPANIES_DESC]]>
+		</message>
+	</layout>
+    <fields name="params">
+        <fieldset name="basic" addfieldpath="/administrator/components/com_iproperty/models/fields">
+            <field name="show_ip_title" type="list" label="COM_IPROPERTY_SHOW_IP_TITLE" default="1" description="COM_IPROPERTY_SHOW_IP_TITLE_DESC">
+                <option	value="0">JHIDE</option>
+                <option	value="1">JSHOW</option>
+            </field>
+            <field name="country" type="country" default="" ctype="company" label="COM_IPROPERTY_COUNTRY" description="" />
+            <field name="locstate" type="locstate" default="" ctype="company" label="COM_IPROPERTY_STATE" description="" />
+            <field name="province" type="province" default="" ctype="company" label="COM_IPROPERTY_PROVINCE" description="" />
+            <field name="city" type="city" default="" ctype="company" label="COM_IPROPERTY_CITY" description="" />
+            <field name="featured" type="list" label="COM_IPROPERTY_FEATURED" default="0" description="">
+                <option	value="0">JNO</option>
+                <option	value="1">JYES</option>
+            </field>
+        </fieldset>
+    </fields>
+</metadata>

@@ -1,0 +1,98 @@
+<?php
+/**
+ * @version 3.3.3 2015-04-30
+ * @package Joomla
+ * @subpackage Intellectual Property
+ * @copyright (C) 2009 - 2015 the Thinkery LLC. All rights reserved.
+ * @license GNU/GPL see LICENSE.php
+ */
+//echo $this->loadTemplate('toolbar');
+//echo "<pre>"; print_r($this->p);
+defined( '_JEXEC' ) or die( 'Restricted access' );
+JHtml::_('behavior.caption');
+$munits     = (!$this->settings->measurement_units) ? JText::_( 'COM_IPROPERTY_SQFT' ) : JText::_( 'COM_IPROPERTY_SQM' );
+$span_style = ($this->p->featured) ? ' style="color: ' . $this->settings->featured_accent . ';"' : '';
+//echo "<pre>"; print_r($this->params); exit;
+$listing_info = ipropertyHTML::getListingInfo($this->p, $this->params);
+            if( $this->p->city )
+            {
+                $this->p->city = ipropertyHTML::getCityName($this->p->city);
+            } 
+            if( $this->p->locstate ){
+                $this->p->locstate = ipropertyHTML::getstatename($this->p->locstate);
+            } 
+            if( $this->p->province ){ $this->p->province = $this->p->province; }
+            if( $this->p->country ){ $this->p->country = ipropertyHTML::getcountryname($this->p->country);  } 
+
+?>
+
+<div class="ip-overview-grid span<?php echo $this->span; ?>" id="ip-listing-<?php echo $this->p->id; ?>">			
+    <div class="ip-property-thumb-holder">                
+        <?php echo ipropertyHTML::getThumbnail($this->p->id, $this->p->proplink, $this->p->street_address, '', 'class="img-polaroid ip-overview-thumb"'); ?>                
+        <?php echo ipropertyHTML::displayBanners($this->p->stype, $this->p->new, $this->ipbaseurl, $this->settings, $this->p->updated); ?>
+    </div>
+    <div class="span4" style="padding:0px;display:none;">
+    <h4 class="ip-overview-price pull-right" style="font-size:18px;"><?php echo $this->p->formattedprice; ?></h4></div>
+    <?php if($this->ipauth->canEditProp($this->p->id)) echo '<div class="iplistaction">'.JHtml::_('icon.edit', $this->p, 'property', false, array('class'=>'hasTooltip')).'</div>'; ?>    
+    <div class="ip-overview-quickinfo" style="font-size:13px">
+        <?php 
+        //echo "<pre>"; print_r($this->p);
+        if($this->p->stype == 1){ $this->p->stype = 'For Sale'; }
+        if($this->p->stype == 2){ $this->p->stype = 'For Lease'; }
+        if($this->p->stype == 3){ $this->p->stype = 'For Sale or Lease'; }
+        if($this->p->stype == 4){ $this->p->stype = 'For Rent'; }
+        if($this->p->stype == 5){ $this->p->stype = 'Sold'; }
+        if($this->p->stype == 6){ $this->p->stype = 'Pending'; }
+            //echo '<em>';
+            /*if( $this->p->stype ) echo '<strong>'.JText::_( 'COM_IPROPERTY_STYPE' ).':</strong> '.$this->p->stype.' &#160;&#160;';*/
+            if( $this->p->stype) echo '<strong>'.JText::_( 'COM_IPROPERTY_STYPE' ).':</strong> '.$this->p->stype.' &#160;&#160;<br>';
+            if( $this->p->yearbuilt) echo '<strong>'.JText::_( 'COM_IPROPERTY_YEARBUILT' ).':</strong> '.$this->p->yearbuilt.' &#160;&#160;<br>';
+            /*if( $this->p->formattedsqft ) echo '<strong>'.$munits.':</strong> '.$this->p->formattedsqft.' &#160;&#160;'; custom viral*/
+            //echo "<pre>"; print_r($this->p); exit;
+            if( $this->p->formattedprice) echo '<strong>'.JText::_( 'COM_IPROPERTY_PRICE' ).':</strong> '.$this->p->formattedprice.' &#160;&#160;<br>';
+            if( $this->p->city ) echo '<strong>'.JText::_( 'COM_IPROPERTY_CITY' ).':</strong> '.$this->p->city.' &#160;&#160;<br>';
+            if( $this->p->statename ) echo '<strong>'.JText::_( 'COM_IPROPERTY_STATE' ).':</strong> '.$this->p->statename.' &#160;&#160;<br>';
+            /*if( $this->p->region ) echo '<strong>'.JText::_( 'COM_IPROPERTY_REGION' ).':</strong> '.$this->p->region.' &#160;&#160;';*/
+            //echo '</em>';
+        ?>
+    </div>
+
+    <div class="span8" style="padding:0px;font-size:13px">
+    <a href="<?php echo $this->p->proplink; ?>"<?php echo $span_style; ?> class="ip-property-header-accent"><?php //echo $this->p->street_address; ?> <button class="btn btn-default"><?php echo JText::_( 'COM_IPROPERTY_VIEW_DETAILS' )?></button></a>
+    <div class="ip-overview-title" style="display:none;">
+        <?php 
+            $loc_line = array();
+            if( $this->p->city ) $loc_line[] = ipropertyHTML::getCityName($this->p->city);
+            if( $this->p->locstate ) $loc_line[] = ipropertyHTML::getstatename($this->p->locstate);
+            if( $this->p->province ) $loc_line[] = $this->p->province;
+            if( $this->p->country ) $loc_line[] = ipropertyHTML::getcountryname($this->p->country);
+            echo implode(', ', $loc_line);
+        ?>
+    </div>
+    <?php if( $this->p->featured ): ?>
+        <div class="pull-right ip-overview-bannerright">
+            <span class="icon-star ip-pointer hasTooltip ip-featured-icon" title="<?php echo JText::_('COM_IPROPERTY_FEATURED'); ?>"></span>
+        </div>
+    <?php endif; ?>
+    </div>
+
+    <?php
+    // display overview and listing_info if available
+    if($this->p->short_description && $this->params->get('show_grid_desc', 0)) echo '<div class="ip-overview-short-desc">'.ipropertyHTML::snippet($this->p->short_description, $this->settings->overview_char).'</div>'; 
+    //if($listing_info) echo '<div class="small">'.$listing_info.'</div>';
+
+    // instead of calling this function - add this as part of the query
+    $cats   = ipropertyHTML::getAvailableCats($this->p->id);
+    if($cats){
+        echo '<div class="ip-overview-catcontainer">';
+        $catcount = 0;
+        foreach( $cats as $c ){
+            echo ipropertyHTML::getCatIcon($c, 20);
+            $catcount++;
+            if($catcount < count($cats)) echo '<span class="ip-cat-icon-divider">&#160;</span>';
+        }
+        echo '</div>';
+    }
+    if ($this->settings->show_hits) echo '<span class="label label-info pull-right ip-hits">'.$this->p->hits.' '.JText::_('COM_IPROPERTY_HITS').'</span>';
+    ?>
+</div>

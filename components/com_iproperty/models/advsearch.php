@@ -1,0 +1,120 @@
+<?php
+/**
+ * @version 3.3.3 2015-04-30
+ * @package Joomla
+ * @subpackage Intellectual Property
+ * @copyright (C) 2009 - 2015 the Thinkery LLC. All rights reserved.
+ * @license GNU/GPL see LICENSE.php
+ */
+
+defined( '_JEXEC' ) or die( 'Restricted access');
+require_once JPATH_COMPONENT.'/models/list.php';
+jimport('joomla.application.component.model');
+
+class IpropertyModelAdvsearch extends IpropertyModelList
+{
+    protected $ipsettings;
+    protected $where;
+    protected $limit;
+    protected $limitstart;
+    protected $orderby;
+    protected $direction;
+
+    public function __construct($config = array())
+    {
+        $this->ipsettings   =  ipropertyAdmin::config();
+        $this->where        = (isset($config['where'])) ? $config['where'] : null;
+        $this->limit        = (isset($config['limit'])) ? $config['limit'] : null;
+        $this->limitstart   = (isset($config['limitstart'])) ? $config['limitstart'] : null;
+        $this->orderby      = (isset($config['orderby'])) ? $config['orderby'] : null;
+        $this->direction    = (isset($config['direction'])) ? $config['direction'] : null;
+
+        // hackish check to replace pid with mls_id since pid is not valid column name
+        // TODO: probably want to rename all pid instances to mls_id in adv search scripts
+        if ($this->orderby == 'pid') $this->orderby = 'mls_id';
+
+        parent::__construct($config);
+    }
+
+    protected function populateState($ordering = null, $direction = null)
+    {
+        // List state information
+        $this->setState('list.limit', $this->limit);
+        $this->setState('list.start', $this->limitstart);
+        $this->setState('list.ordering', $this->orderby);
+        $this->setState('list.direction', $this->direction);
+    }
+
+    protected function getListQuery($featured = false)
+    {
+        $where  = $this->getWhere();        
+        $sort   = $this->getState('list.ordering');
+        $order  = $this->getState('list.direction');
+
+        $pquery = new IpropertyHelperQuery($this->_db, $sort, $order);
+        $query  = $pquery->buildPropertyQuery($where, 'advsearch');
+        //echo $query; exit;
+        return $query;
+    }
+
+    public function getItems($items = null)
+    {
+        //echo "<pre>"; print_r($items); exit;
+		$total	= $this->getTotal();
+        //echo "<pre>"; print_r($total); exit;
+        $items  = ($items) ? $items : parent::getItems();
+        
+        $items  = ipropertyHelperProperty::getPropertyItems($items, true, true);
+        if(count($items) >= 1) {
+            //echo ipropertyHTML::getCityName(6535);exit;
+            //echo "<pre>"; print_r($items);exit;
+
+            foreach ($items as $value) {
+                if(preg_match('/^\d+$/',$value->city)) {
+                  $value->city = ipropertyHTML::getCityName($value->city);
+                  $item[] = $value;
+                } else {
+                  $value->city = $value->city;
+                  $item[] = $value;
+                }
+                $items = $item;
+            }
+            if(!empty($item)){
+                $items = $item;
+            }
+            //echo "<pre>"; print_r($item);
+            $app   = JFactory::getApplication();
+            $user = JFactory::getUser();
+
+            $db = JFactory::getDbo();
+            $query = $db->getQuery(true);
+            $query->select('*');
+            $query->from($db->quoteName('#__iproperty_agents'));
+            $query->where($db->quoteName('email')." = ".$db->quote($user->email));
+            $db->setQuery($query);
+            $res = $db->loadObject();
+            //echo "<pre>"; print_r($items); exit;
+            $returndata = array (
+                'total' => $total,
+                'listings' => $items,
+                'agent_type' => $res->agent_type               
+            );
+            
+            return ipropertyHTML::createReturnObject('ok', $total.' results found', $returndata);
+        } else {
+            return ipropertyHTML::createReturnObject('ok', 'no results', $this->where);
+        }
+    }
+
+    protected function getWhere()
+    {
+        $this->where['searchfields']  = array();
+        return $this->where;
+    }
+
+    public function getStart()
+    {
+        return $this->getState('list.start');
+    }
+}
+?>
